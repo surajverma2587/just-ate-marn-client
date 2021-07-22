@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import RestaurantsPage from "./pages/RestaurantsPage";
 import CreateRestaurantPage from "./pages/CreateRestaurantPage";
+import RestaurantPage from "./pages/RestaurantPage";
 
 const Routes = () => {
   return (
@@ -15,6 +16,9 @@ const Routes = () => {
       </Route>
       <Route exact path="/restaurants/create">
         <CreateRestaurantPage />
+      </Route>
+      <Route exact path="/restaurants/:restaurantId">
+        <RestaurantPage />
       </Route>
     </Switch>
   );
