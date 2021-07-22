@@ -1,4 +1,26 @@
+import { gql, useMutation } from "@apollo/client";
 import { useForm } from "react-hook-form";
+
+const CREATE_RESTAURANT = gql`
+  mutation Mutation($createRestaurantInput: CreateRestaurantInput!) {
+    createRestaurant(input: $createRestaurantInput) {
+      id
+      name
+      address
+      postCode
+      phoneNumber
+      email
+      rating
+      ratings
+      description
+      bannerUrl
+      deliveryEstimate
+      menu {
+        id
+      }
+    }
+  }
+`;
 
 const CreateRestaurantForm = () => {
   const {
@@ -7,7 +29,15 @@ const CreateRestaurantForm = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const [createRestaurant] = useMutation(CREATE_RESTAURANT);
+
+  const onSubmit = (formData) => {
+    createRestaurant({
+      variables: {
+        createRestaurantInput: formData,
+      },
+    });
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
