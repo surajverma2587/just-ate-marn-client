@@ -1,4 +1,5 @@
 import Card from "react-bootstrap/Card";
+import Image from "react-bootstrap/Image";
 import ReactStars from "react-rating-stars-component";
 
 const RestaurantDetails = (props) => {
@@ -6,7 +7,7 @@ const RestaurantDetails = (props) => {
     <Card>
       <Card.Header>{props.name}</Card.Header>
       <Card.Body>
-        <Card.Img variant="top" src={props.bannerUrl} />
+        <Image src={props.bannerUrl} fluid />
         <Card.Text>{props.address}</Card.Text>
         <Card.Text>{props.postCode}</Card.Text>
         <Card.Text>{props.phoneNumber}</Card.Text>
