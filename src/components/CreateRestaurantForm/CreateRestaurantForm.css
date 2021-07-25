@@ -1,0 +1,26 @@
+.form-container {
+  border: 1px solid #aaaaaa;
+  border-radius: 4px;
+  padding: 2rem;
+}
+
+.form-title {
+  font-size: 2rem;
+  text-align: center;
+  margin: 0rem 0rem 2rem 0rem;
+}
+
+.button-block {
+  display: grid;
+  grid-gap: 0.5rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-top: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .form-container {
+    border: none;
+    border-radius: 0;
+  }
+}

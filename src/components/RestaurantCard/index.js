@@ -10,10 +10,11 @@ const RestaurantCard = ({ restaurant }) => {
       </Card.Link>
       <Card.Body>
         <Card.Title>{restaurant.name}</Card.Title>
-        <Card.Text>{restaurant.deliveryEstimate}</Card.Text>
-        <Card.Text>
+        <small className="text-muted">{restaurant.deliveryEstimate}</small>
+        <div className="d-flex justify-content-center mt-4 mb-2">
           <ReactStars count={5} value={3.5} edit={false} isHalf={true} />
-        </Card.Text>
+        </div>
+        <small className="text-muted">{restaurant.ratings} reviews</small>
       </Card.Body>
     </Card>
   );

@@ -2,6 +2,11 @@ import { gql, useMutation } from "@apollo/client";
 import { useForm } from "react-hook-form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
+import { useHistory } from "react-router-dom";
+
+import FormInput from "../FormInput";
+
+import "./CreateRestaurantForm.css";
 
 const CREATE_RESTAURANT = gql`
   mutation Mutation($createRestaurantInput: CreateRestaurantInput!) {
@@ -33,114 +38,66 @@ const CreateRestaurantForm = () => {
 
   const [createRestaurant] = useMutation(CREATE_RESTAURANT);
 
-  const onSubmit = (formData) => {
-    createRestaurant({
+  const history = useHistory();
+
+  const onSubmit = async (formData) => {
+    const { data } = await createRestaurant({
       variables: {
         createRestaurantInput: formData,
       },
     });
+
+    if (data) {
+      history.push(`/restaurants/${data.createRestaurant.id}`);
+    }
   };
 
   return (
-    <Container className="border p-4 my-3">
-      <h2 className="px-3 text-center my-4">Create Restaurant Form</h2>
+    <Container className="form-container">
+      <div className="form-title">Create Restaurant Form</div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div class="my-3 px-3">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Name"
-            {...register("name", { required: true })}
-          />
-          {errors.name && (
-            <div class="form-text text-danger">Restaurant name is required</div>
-          )}
-        </div>
+        <FormInput
+          placeholder="Name"
+          error={errors.name}
+          register={register("name", { required: true })}
+        />
+        <FormInput
+          placeholder="Address"
+          error={errors.address}
+          register={register("address", { required: true })}
+        />
+        <FormInput
+          placeholder="Postcode"
+          error={errors.postCode}
+          register={register("postCode", { required: true })}
+        />
+        <FormInput
+          placeholder="Phone Number"
+          error={errors.phoneNumber}
+          register={register("phoneNumber", { required: true })}
+        />
+        <FormInput
+          placeholder="Email"
+          error={errors.email}
+          register={register("email", { required: false })}
+        />
+        <FormInput
+          placeholder="Description"
+          error={errors.description}
+          register={register("description", { required: false })}
+        />
+        <FormInput
+          placeholder="Banner URL"
+          error={errors.bannerUrl}
+          register={register("bannerUrl", { required: true })}
+        />
+        <FormInput
+          placeholder="Delivery estimate"
+          error={errors.deliveryEstimate}
+          register={register("deliveryEstimate", { required: false })}
+        />
 
-        <div class="mb-3 px-3">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Address"
-            {...register("address", { required: true })}
-          />
-          {errors.address && (
-            <div class="form-text text-danger">
-              Restaurant address is required
-            </div>
-          )}
-        </div>
-
-        <div class="mb-3 px-3">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Post code"
-            {...register("postCode", { required: true })}
-          />
-          {errors.postCode && (
-            <div class="form-text text-danger">
-              Restaurant post code is required
-            </div>
-          )}
-        </div>
-
-        <div class="mb-3 px-3">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Phone number"
-            {...register("phoneNumber", { required: true })}
-          />
-          {errors.phoneNumber && (
-            <div class="form-text text-danger">
-              Restaurant phone number is required
-            </div>
-          )}
-        </div>
-
-        <div class="mb-3 px-3">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Email"
-            {...register("email")}
-          />
-        </div>
-
-        <div class="mb-3 px-3">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Description"
-            {...register("description")}
-          />
-        </div>
-
-        <div class="mb-3 px-3">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Banner URL"
-            {...register("bannerUrl", { required: true })}
-          />
-          {errors.bannerUrl && (
-            <div class="form-text text-danger">
-              Restaurant banner URL is required
-            </div>
-          )}
-        </div>
-
-        <div class="mb-3 px-3">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Delivery estimate"
-            {...register("deliveryEstimate")}
-          />
-        </div>
-
-        <div className="d-grid gap-2 px-3">
+        <div className="button-block">
           <Button variant="primary" size="lg" type="submit">
             Create Restaurant
           </Button>

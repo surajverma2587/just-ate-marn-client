@@ -4,25 +4,41 @@ import ReactStars from "react-rating-stars-component";
 
 const RestaurantDetails = (props) => {
   return (
-    <Card>
-      <Card.Header>{props.name}</Card.Header>
+    <Card className="text-center m-2 mb-4">
+      <Card.Header>
+        <h1>{props.name}</h1>
+      </Card.Header>
       <Card.Body>
-        <Image src={props.bannerUrl} fluid />
-        <Card.Text>{props.address}</Card.Text>
-        <Card.Text>{props.postCode}</Card.Text>
-        <Card.Text>{props.phoneNumber}</Card.Text>
+        <div className="mb-4">
+          <Image
+            src={props.bannerUrl}
+            fluid
+            style={{
+              width: "100%",
+              height: "300px",
+              objectFit: "cover",
+            }}
+          />
+        </div>
+        <div>
+          <small className="text-muted">{props.address}</small>
+        </div>
+        <div>
+          <small className="text-muted">{props.postCode}</small>
+        </div>
+        <p className="mt-4">{props.phoneNumber}</p>
         <Card.Text>{props.email}</Card.Text>
         <Card.Text>{props.description}</Card.Text>
         <Card.Text>{props.deliveryEstimate}</Card.Text>
-        <Card.Text>
+        <div className="d-flex justify-content-center mt-4 mb-2">
           <ReactStars
             count={5}
             value={props.rating}
             edit={false}
             isHalf={true}
           />
-        </Card.Text>
-        <Card.Text>{props.ratings} ratings</Card.Text>
+        </div>
+        <small className="text-muted">{props.ratings} reviews</small>
       </Card.Body>
     </Card>
   );

@@ -26,7 +26,11 @@ const RestaurantsPage = () => {
     return <div>ERROR</div>;
   }
 
-  return <Restaurants restaurants={data.restaurants} />;
+  return (
+    <div className="main-content">
+      <Restaurants restaurants={data.restaurants} />
+    </div>
+  );
 };
 
 export default RestaurantsPage;
