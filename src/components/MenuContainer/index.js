@@ -1,4 +1,8 @@
+import FlexContainer from "../FlexContainer";
 import MenuCard from "../MenuCard";
+import Title from "../Title";
+
+import "./MenuContainer.css";
 
 const MenuContainer = (props) => {
   console.log(props);
@@ -8,22 +12,15 @@ const MenuContainer = (props) => {
     });
   };
   return (
-    <div>
-      <div className="form-title">Drinks</div>
+    <div className="menu-container">
+      <Title text="Drinks" />
+      <FlexContainer>{renderMenuCards("drinks")}</FlexContainer>
       <hr />
-      <div className="d-flex flex-wrap justify-content-center align-items-stretch">
-        {renderMenuCards("drinks")}
-      </div>
-      <div className="form-title">Meals</div>
+      <Title text="Meals" />
+      <FlexContainer>{renderMenuCards("meals")}</FlexContainer>
       <hr />
-      <div className="d-flex flex-wrap justify-content-center align-items-stretch">
-        {renderMenuCards("meals")}
-      </div>
-      <div className="form-title">Desserts</div>
-      <hr />
-      <div className="d-flex flex-wrap justify-content-center align-items-stretch">
-        {renderMenuCards("desserts")}
-      </div>
+      <Title text="Desserts" />
+      <FlexContainer>{renderMenuCards("desserts")}</FlexContainer>
     </div>
   );
 };

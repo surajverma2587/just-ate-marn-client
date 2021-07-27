@@ -1,14 +1,16 @@
 import RestaurantCard from "../RestaurantCard";
+import Title from "../Title";
+import FlexContainer from "../FlexContainer";
 
 const Restaurants = ({ restaurants }) => {
   return (
     <div>
-      <div className="form-title">Restaurants</div>
-      <div className="d-flex flex-wrap justify-content-center">
+      <Title text="Restaurants" />
+      <FlexContainer>
         {restaurants.map((restaurant) => (
           <RestaurantCard restaurant={restaurant} key={restaurant.id} />
         ))}
-      </div>
+      </FlexContainer>
     </div>
   );
 };

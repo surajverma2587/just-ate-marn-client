@@ -65,10 +65,10 @@ const RestaurantPage = () => {
   const { menu, ...restaurantDetailsProps } = restaurant;
 
   return (
-    <Container fluid>
+    <div className="main-content">
       <RestaurantDetails {...restaurantDetailsProps} />
       <MenuContainer {...restaurant.menu} />
-    </Container>
+    </div>
   );
 };
 

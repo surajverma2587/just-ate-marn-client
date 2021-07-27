@@ -1,6 +1,10 @@
 import Card from "react-bootstrap/Card";
 import Image from "react-bootstrap/Image";
 import ReactStars from "react-rating-stars-component";
+import FlexContainer from "../FlexContainer";
+import Text from "../Text";
+
+import "./RestuarantDetails.css";
 
 const RestaurantDetails = (props) => {
   return (
@@ -9,36 +13,33 @@ const RestaurantDetails = (props) => {
         <h1>{props.name}</h1>
       </Card.Header>
       <Card.Body>
-        <div className="mb-4">
-          <Image
-            src={props.bannerUrl}
-            fluid
-            style={{
-              width: "100%",
-              height: "300px",
-              objectFit: "cover",
-            }}
-          />
-        </div>
-        <div>
-          <small className="text-muted">{props.address}</small>
-        </div>
-        <div>
-          <small className="text-muted">{props.postCode}</small>
-        </div>
-        <p className="mt-4">{props.phoneNumber}</p>
-        <Card.Text>{props.email}</Card.Text>
-        <Card.Text>{props.description}</Card.Text>
-        <Card.Text>{props.deliveryEstimate}</Card.Text>
-        <div className="d-flex justify-content-center mt-4 mb-2">
+        <Image src={props.bannerUrl} className="cover-image" />
+        <Text body={`${props.address}, ${props.postCode}`} size="small" />
+        <Text
+          body={props.phoneNumber}
+          size="default"
+          icon={["fas", "phone-square-alt"]}
+        />
+        <Text
+          body={props.email}
+          size="default"
+          icon={["fas", "envelope-square"]}
+        />
+        <Text
+          body={props.deliveryEstimate}
+          size="default"
+          icon={["fas", "clock"]}
+        />
+        <FlexContainer>
           <ReactStars
             count={5}
             value={props.rating}
             edit={false}
             isHalf={true}
           />
-        </div>
-        <small className="text-muted">{props.ratings} reviews</small>
+        </FlexContainer>
+        <Text body={`${props.ratings} reviews`} size="small" />
+        <Card.Text>{props.description}</Card.Text>
       </Card.Body>
     </Card>
   );

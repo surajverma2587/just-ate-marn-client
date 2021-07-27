@@ -4,12 +4,6 @@
   padding: 2rem;
 }
 
-.form-title {
-  font-size: 2rem;
-  text-align: center;
-  margin: 0rem 0rem 2rem 0rem;
-}
-
 .button-block {
   display: grid;
   grid-gap: 0.5rem;

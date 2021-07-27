@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 import FormInput from "../FormInput";
 
 import "./CreateRestaurantForm.css";
+import Title from "../Title";
 
 const CREATE_RESTAURANT = gql`
   mutation Mutation($createRestaurantInput: CreateRestaurantInput!) {
@@ -54,7 +55,7 @@ const CreateRestaurantForm = () => {
 
   return (
     <Container className="form-container">
-      <div className="form-title">Create Restaurant Form</div>
+      <Title text="Create Restaurant Form" />
       <form onSubmit={handleSubmit(onSubmit)}>
         <FormInput
           placeholder="Name"

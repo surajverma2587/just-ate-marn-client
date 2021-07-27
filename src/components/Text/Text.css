@@ -1,0 +1,13 @@
+.text-container {
+  margin: 1rem 0rem;
+}
+
+.text--small {
+  font-size: 0.875rem;
+  color: #6c757d;
+  margin: 1rem 0;
+}
+
+.text-icon {
+  margin: 0 1rem;
+}
