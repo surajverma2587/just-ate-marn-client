@@ -1,5 +1,4 @@
 import classNames from "classnames";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./Text.css";
 
@@ -10,11 +9,7 @@ const Text = ({ size, body, icon }) => {
         "text--small": size === "small",
       })}
     >
-      {icon && icon.length && (
-        <span className="text-icon">
-          <FontAwesomeIcon icon={icon} />
-        </span>
-      )}
+      {icon && <span className="text-icon">{icon}</span>}
       <span className="text-content">{body}</span>
     </div>
   );

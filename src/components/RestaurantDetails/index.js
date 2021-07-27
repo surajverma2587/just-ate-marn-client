@@ -1,6 +1,8 @@
 import Card from "react-bootstrap/Card";
 import Image from "react-bootstrap/Image";
 import ReactStars from "react-rating-stars-component";
+import { FaPhoneAlt, FaEnvelope, FaClock } from "react-icons/fa";
+
 import FlexContainer from "../FlexContainer";
 import Text from "../Text";
 
@@ -15,21 +17,9 @@ const RestaurantDetails = (props) => {
       <Card.Body>
         <Image src={props.bannerUrl} className="cover-image" />
         <Text body={`${props.address}, ${props.postCode}`} size="small" />
-        <Text
-          body={props.phoneNumber}
-          size="default"
-          icon={["fas", "phone-square-alt"]}
-        />
-        <Text
-          body={props.email}
-          size="default"
-          icon={["fas", "envelope-square"]}
-        />
-        <Text
-          body={props.deliveryEstimate}
-          size="default"
-          icon={["fas", "clock"]}
-        />
+        <Text body={props.phoneNumber} size="default" icon={<FaPhoneAlt />} />
+        <Text body={props.email} size="default" icon={<FaEnvelope />} />
+        <Text body={props.deliveryEstimate} size="default" icon={<FaClock />} />
         <FlexContainer>
           <ReactStars
             count={5}
