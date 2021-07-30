@@ -5,7 +5,6 @@ import Title from "../Title";
 import "./MenuContainer.css";
 
 const MenuContainer = (props) => {
-  console.log(props);
   const renderMenuCards = (type) => {
     return props[type].map((drink) => {
       return <MenuCard {...drink} />;

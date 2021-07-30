@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import RestaurantsPage from "./pages/RestaurantsPage";
 import CreateRestaurantPage from "./pages/CreateRestaurantPage";
 import RestaurantPage from "./pages/RestaurantPage";
+import LoginPage from "./pages/LoginPage";
 
 const Routes = () => {
   return (
@@ -19,6 +20,9 @@ const Routes = () => {
       </Route>
       <Route exact path="/restaurants/:restaurantId">
         <RestaurantPage />
+      </Route>
+      <Route exact path="/login">
+        <LoginPage />
       </Route>
     </Switch>
   );

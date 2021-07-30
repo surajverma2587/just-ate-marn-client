@@ -11,3 +11,7 @@
 .text-icon {
   margin: 0 1rem;
 }
+
+.text-content {
+  line-height: 2rem;
+}

@@ -13,6 +13,7 @@
 
 .form-input::placeholder {
   color: #aaaaaa;
+  font-size: 1rem;
 }
 
 .form-input--error::placeholder {

@@ -1,6 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
-import Container from "react-bootstrap/Container";
 
 import MenuContainer from "../../components/MenuContainer";
 import RestaurantDetails from "../../components/RestaurantDetails";

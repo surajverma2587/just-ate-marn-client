@@ -5,9 +5,9 @@ import Container from "react-bootstrap/Container";
 import { useHistory } from "react-router-dom";
 
 import FormInput from "../FormInput";
+import Title from "../Title";
 
 import "./CreateRestaurantForm.css";
-import Title from "../Title";
 
 const CREATE_RESTAURANT = gql`
   mutation Mutation($createRestaurantInput: CreateRestaurantInput!) {
