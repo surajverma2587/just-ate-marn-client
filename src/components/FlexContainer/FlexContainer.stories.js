@@ -9,25 +9,81 @@ export default {
 
 export const Basic = (props) => (
   <FlexContainer {...props}>
-    <div style={{ width: "200px", border: "1px solid black", margin: "1rem" }}>
+    <div
+      style={{
+        width: "200px",
+        height: "200px",
+        textAlign: "center",
+        border: "1px solid black",
+        margin: "1rem",
+      }}
+    >
       Box 1
     </div>
-    <div style={{ width: "200px", border: "1px solid black", margin: "1rem" }}>
+    <div
+      style={{
+        width: "200px",
+        height: "200px",
+        textAlign: "center",
+        border: "1px solid black",
+        margin: "1rem",
+      }}
+    >
       Box 2
     </div>
-    <div style={{ width: "200px", border: "1px solid black", margin: "1rem" }}>
+    <div
+      style={{
+        width: "200px",
+        height: "200px",
+        textAlign: "center",
+        border: "1px solid black",
+        margin: "1rem",
+      }}
+    >
       Box 3
     </div>
-    <div style={{ width: "200px", border: "1px solid black", margin: "1rem" }}>
+    <div
+      style={{
+        width: "200px",
+        height: "200px",
+        textAlign: "center",
+        border: "1px solid black",
+        margin: "1rem",
+      }}
+    >
       Box 4
     </div>
-    <div style={{ width: "200px", border: "1px solid black", margin: "1rem" }}>
+    <div
+      style={{
+        width: "200px",
+        height: "200px",
+        textAlign: "center",
+        border: "1px solid black",
+        margin: "1rem",
+      }}
+    >
       Box 5
     </div>
-    <div style={{ width: "200px", border: "1px solid black", margin: "1rem" }}>
+    <div
+      style={{
+        width: "200px",
+        height: "200px",
+        textAlign: "center",
+        border: "1px solid black",
+        margin: "1rem",
+      }}
+    >
       Box 6
     </div>
-    <div style={{ width: "200px", border: "1px solid black", margin: "1rem" }}>
+    <div
+      style={{
+        width: "200px",
+        height: "200px",
+        textAlign: "center",
+        border: "1px solid black",
+        margin: "1rem",
+      }}
+    >
       Box 7
     </div>
   </FlexContainer>

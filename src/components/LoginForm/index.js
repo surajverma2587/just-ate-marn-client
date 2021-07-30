@@ -6,6 +6,8 @@ import Button from "react-bootstrap/Button";
 
 import FormInput from "../FormInput";
 import Title from "../Title";
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext";
 
 const LOGIN = gql`
   mutation Mutation($loginInput: LoginInput!) {
@@ -30,6 +32,8 @@ const LoginForm = () => {
 
   const history = useHistory();
 
+  const { onLogin } = useContext(UserContext);
+
   const onSubmit = async (formData) => {
     try {
       const { data } = await login({
@@ -38,10 +42,17 @@ const LoginForm = () => {
         },
       });
 
-      const user = data.login;
+      if (data.login) {
+        const {
+          token,
+          user: { email, id },
+        } = data.login;
 
-      if (user) {
-        localStorage.setItem("user", JSON.stringify(user));
+        onLogin({
+          id,
+          email,
+          token,
+        });
         history.push(`/`);
       }
     } catch (err) {

@@ -29,10 +29,7 @@ export const PasswordInput = (props) => {
 };
 
 export const WithError = (props) => {
-  const {
-    register,
-    formState: { errors },
-  } = useForm();
+  const { register } = useForm();
 
   return (
     <div style={{ width: "75%" }}>

@@ -16,7 +16,12 @@ const RestaurantCard = ({ restaurant }) => {
         <Card.Title>{restaurant.name}</Card.Title>
         <Text body={restaurant.deliveryEstimate} size="small" />
         <FlexContainer>
-          <ReactStars count={5} value={3.5} edit={false} isHalf={true} />
+          <ReactStars
+            count={5}
+            value={restaurant.rating}
+            edit={false}
+            isHalf={true}
+          />
         </FlexContainer>
         <Text body={`${restaurant.ratings} reviews`} size="small" />
       </Card.Body>
