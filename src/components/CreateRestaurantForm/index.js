@@ -27,7 +27,9 @@ const CreateRestaurantForm = () => {
       onCompleted: (data) => {
         history.push(`/restaurants/${data.createRestaurant.id}`);
       },
-      onError: () => {},
+      onError: (error) => {
+        console.log(error);
+      },
     }
   );
 
