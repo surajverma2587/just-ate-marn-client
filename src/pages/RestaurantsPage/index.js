@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/client";
 import Restaurants from "../../components/Restaurants";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import ErrorCard from "../../components/ErrorCard";
+import MainContainer from "../../components/MainContainer";
 import { RESTAURANTS_QUERY } from "../../graphql/queries";
 
 const RestaurantsPage = () => {
@@ -17,9 +18,9 @@ const RestaurantsPage = () => {
   }
 
   return (
-    <div className="main-content">
+    <MainContainer>
       <Restaurants restaurants={data.restaurants} />
-    </div>
+    </MainContainer>
   );
 };
 

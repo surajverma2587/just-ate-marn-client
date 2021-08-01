@@ -8,11 +8,9 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import Routes from "./Routes";
-import UserProvider from "./context/UserContext";
+import Routes from "./components/Routes";
 import NavigationBar from "./components/NavigationBar";
-
-import "./App.css";
+import UserProvider from "./context/UserContext";
 
 const httpLink = createHttpLink({
   uri: process.env.GRAPHQL_URL || "http://localhost:4000/",

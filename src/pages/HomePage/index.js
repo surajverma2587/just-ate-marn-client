@@ -1,5 +1,7 @@
+import MainContainer from "../../components/MainContainer";
+
 const HomePage = () => {
-  return <div className="main-content">Home</div>;
+  return <MainContainer>Home</MainContainer>;
 };
 
 export default HomePage;

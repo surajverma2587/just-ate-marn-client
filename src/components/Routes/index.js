@@ -1,13 +1,13 @@
 import { useContext } from "react";
 import { Switch, Route, Redirect, useHistory } from "react-router-dom";
 
-import HomePage from "./pages/HomePage";
-import RestaurantsPage from "./pages/RestaurantsPage";
-import CreateRestaurantPage from "./pages/CreateRestaurantPage";
-import RestaurantPage from "./pages/RestaurantPage";
-import LoginPage from "./pages/LoginPage";
-import { UserContext } from "./context/UserContext";
-import InvalidPage from "./pages/InvalidPage";
+import HomePage from "../../pages/HomePage";
+import RestaurantsPage from "../../pages/RestaurantsPage";
+import CreateRestaurantPage from "../../pages/CreateRestaurantPage";
+import RestaurantPage from "../../pages/RestaurantPage";
+import LoginPage from "../../pages/LoginPage";
+import InvalidPage from "../../pages/InvalidPage";
+import { UserContext } from "../../context/UserContext";
 
 const Routes = () => {
   const { currentUser } = useContext(UserContext);

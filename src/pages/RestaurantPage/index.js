@@ -5,6 +5,7 @@ import MenuContainer from "../../components/MenuContainer";
 import RestaurantDetails from "../../components/RestaurantDetails";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import ErrorCard from "../../components/ErrorCard";
+import MainContainer from "../../components/MainContainer";
 import { RESTAURANT_QUERY } from "../../graphql/queries";
 
 const RestaurantPage = () => {
@@ -25,10 +26,10 @@ const RestaurantPage = () => {
   const { menu, ...rest } = data.restaurant;
 
   return (
-    <div className="main-content">
+    <MainContainer>
       <RestaurantDetails {...rest} />
       <MenuContainer {...menu} />
-    </div>
+    </MainContainer>
   );
 };
 

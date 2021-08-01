@@ -1,10 +1,11 @@
 import CreateRestaurantForm from "../../components/CreateRestaurantForm";
+import MainContainer from "../../components/MainContainer";
 
 const CreateRestaurantPage = () => {
   return (
-    <div className="main-content">
+    <MainContainer>
       <CreateRestaurantForm />
-    </div>
+    </MainContainer>
   );
 };
 

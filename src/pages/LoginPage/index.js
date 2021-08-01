@@ -1,10 +1,11 @@
 import LoginForm from "../../components/LoginForm";
+import MainContainer from "../../components/MainContainer";
 
 const LoginPage = () => {
   return (
-    <div className="main-content">
+    <MainContainer>
       <LoginForm />
-    </div>
+    </MainContainer>
   );
 };
 
