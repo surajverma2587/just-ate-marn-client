@@ -1,29 +1,19 @@
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 
 import Restaurants from "../../components/Restaurants";
-
-const RESTAURANTS_QUERY = gql`
-  query Query {
-    restaurants {
-      id
-      name
-      bannerUrl
-      rating
-      ratings
-      deliveryEstimate
-    }
-  }
-`;
+import LoadingSpinner from "../../components/LoadingSpinner";
+import ErrorCard from "../../components/ErrorCard";
+import { RESTAURANTS_QUERY } from "../../graphql/queries";
 
 const RestaurantsPage = () => {
   const { loading, error, data } = useQuery(RESTAURANTS_QUERY);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <LoadingSpinner message="Fetching restaurants" />;
   }
 
   if (error) {
-    return <div>ERROR</div>;
+    return <ErrorCard />;
   }
 
   return (

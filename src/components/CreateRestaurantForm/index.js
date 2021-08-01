@@ -1,57 +1,51 @@
-import { gql, useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import { useHistory } from "react-router-dom";
 
 import FormInput from "../FormInput";
 import Title from "../Title";
+import LoadingSpinner from "../LoadingSpinner";
+import ErrorCard from "../ErrorCard";
+import { CREATE_RESTAURANT } from "../../graphql/mutations";
 
 import "./CreateRestaurantForm.css";
 
-const CREATE_RESTAURANT = gql`
-  mutation Mutation($createRestaurantInput: CreateRestaurantInput!) {
-    createRestaurant(input: $createRestaurantInput) {
-      id
-      name
-      address
-      postCode
-      phoneNumber
-      email
-      rating
-      ratings
-      description
-      bannerUrl
-      deliveryEstimate
-      menu {
-        id
-      }
-    }
-  }
-`;
-
 const CreateRestaurantForm = () => {
+  const history = useHistory();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const [createRestaurant] = useMutation(CREATE_RESTAURANT);
-
-  const history = useHistory();
+  const [createRestaurant, { data, error, loading }] = useMutation(
+    CREATE_RESTAURANT,
+    {
+      onCompleted: (data) => {
+        history.push(`/restaurants/${data.createRestaurant.id}`);
+      },
+      onError: () => {},
+    }
+  );
 
   const onSubmit = async (formData) => {
-    const { data } = await createRestaurant({
+    await createRestaurant({
       variables: {
         createRestaurantInput: formData,
       },
     });
-
-    if (data) {
-      history.push(`/restaurants/${data.createRestaurant.id}`);
-    }
   };
+
+  if (loading) {
+    return <LoadingSpinner message="Creating your restaurant" />;
+  }
+
+  if (error) {
+    return <ErrorCard />;
+  }
 
   return (
     <Container className="form-container">

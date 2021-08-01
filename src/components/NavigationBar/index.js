@@ -10,7 +10,13 @@ const NavigationBar = () => {
   const { currentUser, onLogout } = useContext(UserContext);
 
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      bg="dark"
+      variant="dark"
+      style={{ zIndex: "100" }}
+    >
       <Container>
         <Navbar.Brand href="/">Just Ate</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

@@ -26,6 +26,8 @@ const App = () => {
   const onLogout = () => {
     localStorage.removeItem("user");
     setCurrentUser();
+
+    window.location.assign("/login");
   };
 
   return (

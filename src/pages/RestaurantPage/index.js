@@ -1,72 +1,33 @@
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 
 import MenuContainer from "../../components/MenuContainer";
 import RestaurantDetails from "../../components/RestaurantDetails";
-
-const RESTAURANT_QUERY = gql`
-  query Query($restaurantId: ID!) {
-    restaurant(id: $restaurantId) {
-      id
-      name
-      address
-      postCode
-      phoneNumber
-      email
-      rating
-      ratings
-      description
-      bannerUrl
-      deliveryEstimate
-      menu {
-        id
-        drinks {
-          id
-          name
-          price
-          description
-          imageUrl
-        }
-        meals {
-          id
-          name
-          price
-          description
-          imageUrl
-        }
-        desserts {
-          id
-          name
-          price
-          description
-          imageUrl
-        }
-      }
-    }
-  }
-`;
+import LoadingSpinner from "../../components/LoadingSpinner";
+import ErrorCard from "../../components/ErrorCard";
+import { RESTAURANT_QUERY } from "../../graphql/queries";
 
 const RestaurantPage = () => {
   const { restaurantId } = useParams();
+
   const { loading, error, data } = useQuery(RESTAURANT_QUERY, {
     variables: { restaurantId },
   });
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <LoadingSpinner message="Fetching restaurant details" />;
   }
 
   if (error) {
-    return <div>ERROR</div>;
+    return <ErrorCard />;
   }
 
-  const { restaurant } = data;
-  const { menu, ...restaurantDetailsProps } = restaurant;
+  const { menu, ...rest } = data.restaurant;
 
   return (
     <div className="main-content">
-      <RestaurantDetails {...restaurantDetailsProps} />
-      <MenuContainer {...restaurant.menu} />
+      <RestaurantDetails {...rest} />
+      <MenuContainer {...menu} />
     </div>
   );
 };
