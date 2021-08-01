@@ -23,6 +23,15 @@ const RestaurantPage = () => {
     return <ErrorCard />;
   }
 
+  if (!data?.restaurant) {
+    return (
+      <ErrorCard
+        title="Restaurant does not exist"
+        message="Please go back to the restaurant page to find the restaurant you are looking for."
+      />
+    );
+  }
+
   const { menu, ...rest } = data.restaurant;
 
   return (
