@@ -6,6 +6,7 @@ import RestaurantsPage from "../../pages/RestaurantsPage";
 import CreateRestaurantPage from "../../pages/CreateRestaurantPage";
 import RestaurantPage from "../../pages/RestaurantPage";
 import LoginPage from "../../pages/LoginPage";
+import SignUpPage from "../../pages/SignUpPage";
 import InvalidPage from "../../pages/InvalidPage";
 import { UserContext } from "../../context/UserContext";
 
@@ -29,6 +30,9 @@ const Routes = () => {
       </Route>
       <Route exact path="/login">
         {!currentUser ? <LoginPage /> : <InvalidPage />}
+      </Route>
+      <Route exact path="/sign-up">
+        {!currentUser ? <SignUpPage /> : <InvalidPage />}
       </Route>
     </Switch>
   );

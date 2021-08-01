@@ -5,5 +5,7 @@
 @media screen and (max-width: 768px) {
   .main-content {
     margin-top: 0;
+    margin-right: 0;
+    margin-left: 0;
   }
 }
