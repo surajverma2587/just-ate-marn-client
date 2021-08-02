@@ -11,7 +11,9 @@ import LoadingSpinner from "../LoadingSpinner";
 import { UserContext } from "../../context/UserContext";
 import { LOGIN } from "../../graphql/mutations";
 
-const LoginForm = ({ redirect = "/" }) => {
+import "./Login.css";
+
+const LoginForm = ({ redirect }) => {
   const history = useHistory();
 
   const {
@@ -35,7 +37,7 @@ const LoginForm = ({ redirect = "/" }) => {
         lastName,
       });
 
-      history.push(redirect);
+      history.push(redirect || "/");
     },
     onError: () => {},
   });
